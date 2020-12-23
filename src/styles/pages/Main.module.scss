@@ -1,0 +1,51 @@
+@import "../base/variables";
+@import "../base/mixins";
+
+.wrapper {
+  max-width: 1260px;
+  margin: 0 auto;
+
+  padding-top: 20px;
+  .header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 60px;
+  }
+
+  .navigation {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 32px;
+
+    .filterBar {
+      .filterBtn {
+        display: inline-block;
+        margin-right: 10px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .currentFilter {
+    @extend %font;
+    font-size: 32px;
+
+    margin-bottom: 35px;
+  }
+
+  .products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .product_card_wrapper {
+    padding: 0 16px 0 16px;
+    margin-bottom: 60px;
+  }
+}

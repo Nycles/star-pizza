@@ -1,0 +1,44 @@
+@import "../base/variables";
+@import "../base/mixins";
+
+.card {
+  width: 280px;
+  text-align: center;
+
+  .img_wrapper {
+    text-align: right;
+    padding-right: 4px;
+  }
+
+  .img {
+    width: 260px;
+    height: 260px;
+  }
+
+  .title_wrapper {
+    margin-bottom: 18px;
+  }
+
+  .title {
+    min-height: 1em;
+
+    @extend %font;
+    font-weight: 800;
+    font-size: 20px;
+  }
+
+  .options_wrapper {
+    margin-bottom: 16px;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .price {
+    @extend %font;
+    font-size: 22px;
+  }
+}

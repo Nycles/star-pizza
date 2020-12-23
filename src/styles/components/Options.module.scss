@@ -1,0 +1,64 @@
+@import "../base/variables";
+@import "../base/mixins";
+
+.options_wrapper {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 6px;
+
+  width: 280px;
+  height: 100px;
+
+  border-radius: 10px;
+  background-color: $light-gray;
+  padding: 6px;
+}
+
+.top_line {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 6px;
+}
+
+.bottom_line {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 6px;
+}
+
+// CUSTOM BTN
+
+.option {
+  height: 100%;
+
+  cursor: pointer;
+
+  border: 0;
+  border-radius: 5px;
+  outline: none;
+  background-color: transparent;
+
+  @extend %font;
+  font-size: 14px;
+  color: $dark-gray;
+
+  transition: all 200ms linear;
+
+  &:hover {
+    background-color: $gray;
+  }
+
+  &.active {
+    background-color: $white;
+    box-shadow: 0 0 8px -6px $black;
+    cursor: default;
+  }
+
+  &:disabled {
+    color: rgba(#404040, 0.5);
+    cursor: default;
+    &:hover {
+      background-color: transparent;
+    }
+  }
+}

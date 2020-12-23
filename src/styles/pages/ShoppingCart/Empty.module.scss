@@ -1,0 +1,42 @@
+@import "../../base/variables";
+@import "../../base/mixins";
+
+.wrapper {
+  width: 550px;
+  margin: 0 auto;
+  margin-top: 40px;
+
+  text-align: center;
+
+  .title {
+    font-size: 32px;
+
+    margin-bottom: 10px;
+  }
+  .sub_title {
+    margin-bottom: 50px;
+    p {
+      font-weight: 400;
+      font-size: 18px;
+      color: #777777;
+      line-height: 1.45;
+    }
+  }
+
+  img {
+    height: 255px;
+    margin-bottom: 50px;
+  }
+
+  button {
+    @extend %button;
+    display: block;
+
+    width: 210px;
+    height: 55px;
+    background-color: $black;
+    color: $white;
+
+    margin: 0 auto;
+  }
+}
