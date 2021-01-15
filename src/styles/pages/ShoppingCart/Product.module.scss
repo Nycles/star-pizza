@@ -6,9 +6,13 @@
   justify-content: space-between;
   align-items: center;
 
+  flex-wrap: wrap;
+
   width: 100%;
   height: 140px;
-  padding: 30px 0 30px 0;
+  padding: 30px 0;
+
+  border-top: 1px solid $light-gray;
 
   .info {
     display: inline-flex;
@@ -70,10 +74,90 @@
       display: inline-flex;
       justify-content: space-between;
       align-items: center;
+
+      .minus,
+      .plus {
+        background-size: 10px;
+        transition: all 200ms linear;
+      }
+
+      .minus {
+        background: url("../../../assets/svg/minus.svg") no-repeat center;
+
+        &:hover {
+          background: $purple url("../../../assets/svg/minusWhite.svg") no-repeat center;
+        }
+      }
+
+      .plus {
+        background: url("../../../assets/svg/plus.svg") no-repeat center;
+
+        &:hover {
+          background: $purple url("../../../assets/svg/plusWhite.svg") no-repeat center;
+        }
+      }
+    }
+
+    .price {
+      display: inline-block;
+      min-width: 60px;
     }
 
     .remove {
+      transition: all 200ms linear;
       border: 2px solid #d7d7d7;
+
+      background: url("../../../assets/svg/cross.svg") no-repeat center;
+
+      &:hover {
+        background: url("../../../assets/svg/crossGray.svg") no-repeat center;
+        border: 2px solid #505050;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .product {
+    height: auto;
+
+    .info {
+      img {
+        width: 70px;
+        height: 70px;
+
+        margin-right: 5px;
+      }
+
+      h1 {
+        font-size: 20px;
+      }
+
+      h6 {
+        font-size: 16px;
+      }
+    }
+
+    .settings {
+      font-size: 18px;
+      width: 45%;
+
+      button {
+        width: 26px;
+        height: 26px;
+      }
+
+      .counter {
+        width: 32px;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+
+        span {
+          width: 32px;
+          padding: 5px 0;
+        }
+      }
     }
   }
 }

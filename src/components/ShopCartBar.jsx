@@ -11,7 +11,7 @@ function ShopCartBar(props) {
 
       <div className={ss.count_of_pizzas}>
         <img className={ss.cart} src={cart} alt="cart" />
-        {props.countOfPizzas}
+        {props.countOfProducts}
       </div>
     </div>
   )

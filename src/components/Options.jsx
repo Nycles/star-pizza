@@ -49,8 +49,8 @@ function Option(props) {
       onClick={
         props.selected !== props.name
           ? props.type === "dough"
-            ? () => dispatch(toggleOptionDough(props.index, props.name))
-            : () => dispatch(toggleOptionSize(props.index, props.name))
+            ? () => dispatch(toggleOptionDough(props.id, props.name))
+            : () => dispatch(toggleOptionSize(props.id, props.name))
           : null
       }
       disabled={props.options ? !props.options.includes(props.name) : true}

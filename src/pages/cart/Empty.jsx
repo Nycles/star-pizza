@@ -4,7 +4,9 @@ import ss from "../../styles/pages/ShoppingCart/Empty.module.scss"
 import empty_cart from "../../assets/svg/shopping-cart-empty.svg"
 import { NavLink } from "react-router-dom"
 
-function Empty() {
+export function Empty() {
+  console.log("Empty")
+
   return (
     <div className={ss.wrapper}>
       <h1 className={ss.title}>Корзина пустая &#128533;</h1>
@@ -16,11 +18,9 @@ function Empty() {
 
       <img src={empty_cart} alt="empty cart" />
 
-      <NavLink to="/">
+      <NavLink to="/" style={{ textDecoration: "none" }}>
         <button>Вернуться назад</button>
       </NavLink>
     </div>
   )
 }
-
-export default Empty

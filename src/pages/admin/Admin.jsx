@@ -6,7 +6,9 @@ import { addNewProduct } from "../../actions/products"
 import { nanoid } from "nanoid"
 
 function Admin() {
-  const { allOptions, allTypes } = useSelector((state) => state.products)
+  const allTypes = ["Все", "Мясная", "Вегетарианская", "Гриль", "Острая", "Закрытая"]
+
+  const { allOptions } = useSelector((state) => state.products)
   const dispatch = useDispatch()
 
   const dough = allOptions.dough.map((e, i) => <Checkbox key={i} type="dough" name={e} value={e} />)
@@ -42,6 +44,7 @@ function Admin() {
           price: 0,
           type: 0,
           options: { dough: [], sizes: [] },
+          raiting: 0,
         }}
         onSubmit={submit}
       >

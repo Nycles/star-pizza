@@ -1,38 +1,32 @@
 import React from "react"
 import ss from "../../styles/pages/ShoppingCart/ShoppingCart.module.scss"
+import { useDispatch } from "react-redux"
 
 import cart from "../../assets/svg/cart-black.svg"
 import trash from "../../assets/svg/trash.svg"
 import arrow from "../../assets/svg/arrow-left.svg"
 
-import Logo from "../../components/Logo"
-import Product from "./Product"
 import { NavLink } from "react-router-dom"
-import Empty from "./Empty"
-import { useDispatch, useSelector } from "react-redux"
-import { removeAllProductsInCart } from "../../actions/cart"
 
-function ShoppingCart(props) {
+import Logo from "../../components/Logo"
+import { Empty } from "./Empty"
+
+import { removeAllProductsInCart } from "../../actions/cart"
+import { Products } from "./Products"
+import { useShallowEqualSelector } from "../../hooks"
+
+function ShoppingCart() {
   const selector = (state) => {
-    return state.cart
+    return {
+      totalCount: state.cart.totalCount,
+      totalPrice: state.cart.totalPrice,
+    }
   }
 
-  const data = useSelector(selector)
+  const data = useShallowEqualSelector(selector)
   const dispatch = useDispatch()
 
-  const products = data.products.map((p, i) => (
-    <Product
-      key={i}
-      id={p.id}
-      index={i}
-      img={p.img}
-      title={p.title}
-      price={p.totalPrice}
-      dough={p.selected.dough}
-      size={p.selected.sizes}
-      amount={p.totalCount}
-    />
-  ))
+  console.log("Cart")
 
   return (
     <div className={ss.shopping_cart}>
@@ -54,13 +48,14 @@ function ShoppingCart(props) {
                 </div>
 
                 <button onClick={() => dispatch(removeAllProductsInCart())} className={ss.btn_remove_all}>
-                  <img src={trash} alt="trash" />
                   Очистить корзину
                 </button>
               </div>
 
               <div className={ss.main_main}>
-                <div className={ss.products}>{products}</div>
+                <div className={ss.products}>
+                  <Products />
+                </div>
 
                 <div className={ss.order_data}>
                   <h6>
@@ -74,10 +69,7 @@ function ShoppingCart(props) {
 
               <div className={ss.main_footer}>
                 <NavLink to={"/"} style={{ textDecoration: "none" }}>
-                  <button className={ss.btn_back}>
-                    <img src={arrow} alt="array" />
-                    Вернуться назад
-                  </button>
+                  <button className={ss.btn_back}>Вернуться назад</button>
                 </NavLink>
 
                 <button className={ss.btn_pay}>Оплатить сейчас</button>

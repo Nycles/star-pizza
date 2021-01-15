@@ -14,6 +14,7 @@ function Button(props) {
       ) : null}
 
       {props.type === "add" ? "Добавить" : props.text}
+      {props.type === "add" ? props.count ? <div className={ss.counter_block}>{props.count}</div> : null : null}
     </button>
   )
 }

@@ -42,3 +42,24 @@
     font-size: 22px;
   }
 }
+
+@media (max-width: 480px) {
+  .card {
+    width: 280px;
+    text-align: center;
+
+    .img_wrapper {
+      text-align: center;
+      padding-left: 8px;
+    }
+
+    .img {
+      width: 220px;
+      height: 220px;
+    }
+
+    .price {
+      font-size: 20px;
+    }
+  }
+}

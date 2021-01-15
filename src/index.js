@@ -2,10 +2,11 @@ import React from "react"
 import ReactDOM from "react-dom"
 import App from "./App"
 
+import firebase from "firebase/app"
+
 import "firebase/database"
 import "firebase/storage"
-
-import firebase from "firebase/app"
+import "firebase/auth"
 
 const firebaseConfig = {
   apiKey: "AIzaSyA0Fl9TJocaHkH79zk-aBGsfgW4SGRt-P4",
@@ -23,9 +24,4 @@ firebase.initializeApp(firebaseConfig)
 export const database = firebase.database()
 export const storage = firebase.storage()
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById("root")
-)
+ReactDOM.render(<App />, document.getElementById("root"))

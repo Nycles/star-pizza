@@ -6,7 +6,8 @@
 
   border: 0;
   border-radius: 30px;
-  padding: 0 26px;
+
+  padding: 0 24px;
 
   @extend %font;
   font-size: 18px;
@@ -31,7 +32,7 @@
 
   &.add {
     border: 1px solid $purple;
-    padding: 0 18px;
+    padding: 0 12px;
 
     color: $purple;
     background-color: $white;
@@ -44,6 +45,11 @@
         .horizontal_line {
           background-color: $white;
         }
+      }
+
+      .counter_block {
+        background-color: $white;
+        color: $purple;
       }
     }
 
@@ -72,5 +78,32 @@
         height: 2px;
       }
     }
+
+    .counter_block {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 22px;
+      height: 22px;
+
+      border-radius: 100%;
+      background-color: $purple;
+
+      color: $white;
+      font-size: 14px;
+
+      margin-left: 6px;
+
+      transition: all 200ms linear;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    height: 42px;
+    padding: 0 18px;
+    font-size: 16px;
   }
 }

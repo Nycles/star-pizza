@@ -21,7 +21,8 @@ const calculateTotalCount = (products) => {
 
 const calculateTotalPrice = (products) => {
   let result = products.reduce((acc, product) => {
-    return acc + product.totalPrice
+    const sum = acc + product.totalPrice
+    return Math.ceil(sum * 100) / 100
   }, 0)
   return result
 }
@@ -47,7 +48,7 @@ export const cart = (state = initialState, action = {}) => {
       const result = check(state.products, action.product)
       const changedProducts = state.products.map((e, i) => {
         if (i === result) {
-          return { ...e, totalCount: e.totalCount + 1, totalPrice: e.totalPrice + e.price }
+          return { ...e, totalCount: e.totalCount + 1, totalPrice: Math.ceil((e.totalPrice + e.price) * 100) / 100 }
         } else return e
       })
 
@@ -92,13 +93,16 @@ export const cart = (state = initialState, action = {}) => {
 
     case INCREMENT_TOTAL_COUNT:
       const productsInc = state.products.map((p, i) =>
-        i === action.index ? { ...p, totalCount: p.totalCount + 1, totalPrice: p.totalPrice + p.price } : p
+        i === action.index
+          ? { ...p, totalCount: p.totalCount + 1, totalPrice: Math.ceil((p.totalPrice + p.price) * 100) / 100 }
+          : p
       )
 
       return {
         ...state,
         products: productsInc,
         totalCount: calculateTotalCount(productsInc),
+
         totalPrice: calculateTotalPrice(productsInc),
       }
 
@@ -106,7 +110,7 @@ export const cart = (state = initialState, action = {}) => {
       const productsDec = state.products.map((p, i) =>
         i === action.index
           ? p.totalCount > 1
-            ? { ...p, totalCount: p.totalCount - 1, totalPrice: p.totalPrice - p.price }
+            ? { ...p, totalCount: p.totalCount - 1, totalPrice: Math.ceil((p.totalPrice - p.price) * 100) / 100 }
             : p
           : p
       )

@@ -11,6 +11,12 @@
   justify-content: center;
   align-items: center;
 
+  transition: all 200ms linear;
+
+  &:hover {
+    background-color: #391386;
+  }
+
   .total_price {
     @extend %font;
     color: $white;
@@ -19,7 +25,7 @@
   .stick {
     width: 1px;
     height: 25px;
-    margin: 0 13px 0 13px;
+    margin: 0 13px;
 
     background-color: rgba($white, 0.25);
   }
@@ -35,6 +41,22 @@
       width: 16px;
       height: 16px;
       margin-right: 5px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .shop_cart_bar {
+    width: 125px;
+    height: 40px;
+
+    .stick {
+      margin: 0 7px;
+    }
+
+    .total_price,
+    .count_of_pizzas {
+      font-size: 14px;
     }
   }
 }

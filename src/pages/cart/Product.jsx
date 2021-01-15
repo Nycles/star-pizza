@@ -7,7 +7,7 @@ import cross from "../../assets/svg/cross.svg"
 import { useDispatch } from "react-redux"
 import { decrementTotalCount, incrementTotalCount, removeProductInCart } from "../../actions/cart"
 
-function Product(props) {
+export function Product(props) {
   const dispatch = useDispatch()
 
   return (
@@ -26,30 +26,24 @@ function Product(props) {
       <div className={ss.settings}>
         <div className={ss.counter}>
           <button
+            className={ss.minus}
             onClick={() => {
               dispatch(decrementTotalCount(props.index))
             }}
-          >
-            <img src={minus} alt="minus" />
-          </button>
+          ></button>
           <span>{props.amount}</span>
           <button
+            className={ss.plus}
             onClick={() => {
               dispatch(incrementTotalCount(props.index))
             }}
-          >
-            <img src={plus} alt="plus" />
-          </button>
+          ></button>
         </div>
 
-        <span>{props.price} $</span>
+        <span className={ss.price}>{props.price} $</span>
 
-        <button onClick={() => dispatch(removeProductInCart(props.index))} className={ss.remove}>
-          <img src={cross} alt="cross" />
-        </button>
+        <button onClick={() => dispatch(removeProductInCart(props.index))} className={ss.remove}></button>
       </div>
     </div>
   )
 }
-
-export default Product

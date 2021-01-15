@@ -31,7 +31,7 @@ function ProductCard(props) {
       <div className={ss.footer}>
         <span className={ss.price}>от {props.price} $</span>
 
-        <Button action={() => dispatch(addProductInCart(props.product))} type="add" />
+        <Button action={() => dispatch(addProductInCart(props.product))} type="add" count={props.count} />
       </div>
     </div>
   )

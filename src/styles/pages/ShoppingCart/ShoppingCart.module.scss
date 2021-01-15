@@ -37,11 +37,13 @@ a {
     max-width: 1260px;
     margin: 0 auto;
 
-    padding-top: 20px;
     padding-bottom: 20px;
 
     header {
       width: 100%;
+
+      padding: 20px 0;
+      border-bottom: 1px solid $light-gray;
     }
 
     main {
@@ -75,24 +77,25 @@ a {
           }
 
           .btn_remove_all {
-            display: flex;
-            align-items: center;
+            width: 182px;
 
             border: 0;
             outline: none;
-            background-color: transparent;
             cursor: pointer;
+            background: transparent url(../../../assets/svg/trash.svg) no-repeat left;
+
+            text-align: right;
 
             @extend %font;
             font-weight: 400;
             font-size: 18px;
             color: #b6b6b6;
 
-            img {
-              width: 20px;
-              height: 20px;
+            transition: all 200ms linear;
 
-              margin-right: 7px;
+            &:hover {
+              background: transparent url(../../../assets/svg/trash-gray.svg) no-repeat left;
+              color: #808080;
             }
           }
         }
@@ -138,11 +141,19 @@ a {
             align-items: center;
 
             @extend %btn;
-            background-color: transparent;
+            background: transparent url(../../../assets/svg/arrow-left.svg) no-repeat 30px center;
             border: 1px solid $gray;
 
             font-weight: 400;
             color: $gray;
+
+            transition: all 200ms linear;
+
+            &:hover {
+              background: transparent url(../../../assets/svg/arrow-left-gray.svg) no-repeat 20px center;
+              border: 1px solid #808080;
+              color: #808080;
+            }
 
             img {
               width: 8px;
@@ -153,6 +164,68 @@ a {
           }
           .btn_pay {
             @extend %btn;
+            transition: all 200ms linear;
+
+            &:hover {
+              background-color: #391386;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .shopping_cart {
+    .wrapper {
+      padding: 0 10px;
+      header {
+        padding: 10px 0;
+      }
+
+      main {
+        .main_wrapper {
+          margin-top: 32px;
+
+          .main_header {
+            .title_wrapper {
+              img {
+                width: 23px;
+                height: 23px;
+              }
+
+              h1 {
+                font-size: 24px;
+              }
+            }
+
+            .btn_remove_all {
+              font-size: 16px;
+            }
+          }
+
+          .main_main {
+            .order_data {
+              h6 {
+                font-size: 18px;
+                span {
+                  display: inline-block;
+                  text-align: center;
+                  min-width: 75px;
+                  font-size: 18px;
+                }
+              }
+            }
+          }
+
+          .main_footer {
+            .btn_back,
+            .btn_pay {
+              width: 180px;
+              height: 50px;
+              font-size: 14px;
+            }
           }
         }
       }
